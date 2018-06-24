@@ -241,12 +241,12 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  capybara (>= 2.15, < 4.0)
+  capybara
   chromedriver-helper
   coffee-rails
   jbuilder
   jquery-rails
-  listen (>= 3.0.5, < 3.2)
+  listen
   omniauth
   omniauth-twitter
   pg
@@ -256,12 +256,12 @@ DEPENDENCIES
   selenium-webdriver
   slim
   spring
-  spring-watcher-listen (~> 2.0.0)
+  spring-watcher-listen
   turbolinks
   twitter
   tzinfo-data
   uglifier
-  web-console (>= 3.3.0)
+  web-console
 
 RUBY VERSION
    ruby 2.5.1p57
