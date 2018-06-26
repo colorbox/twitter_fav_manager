@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2018_06_19_112130) do
     t.string "tweet_identifier", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["tweet_identifier"], name: "index_tweets_on_tweet_identifier", unique: true
   end
 
   create_table "users", force: :cascade do |t|
