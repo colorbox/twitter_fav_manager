@@ -4,6 +4,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :twitter_identifier, null: false
       t.string :screen_name, null: false
       t.string :name, null: false
+      t.string :access_token, null: false
+      t.string :access_token_secret, null: false
 
       t.timestamps
     end
