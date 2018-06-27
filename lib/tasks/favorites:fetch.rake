@@ -22,13 +22,10 @@ namespace :favorites do
         favorites.each do |f|
           tweet_id = f.id.to_s
           Tweet.find_or_create_by!(tweet_identifier: tweet_id)
-          pp f.text
           max_id = tweet_id if max_id.nil? || max_id > tweet_id
         end
 
         continue_flag = false if favorites.count<=1
-        pp Tweet.count
-        pp "#########"
       end
     end
   end
