@@ -1,0 +1,2 @@
+class TweetOwner < ApplicationRecord
+end
