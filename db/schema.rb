@@ -10,16 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_19_112130) do
+ActiveRecord::Schema.define(version: 2018_06_28_132556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "favorited_tweets", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "tweet_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tweet_owners", force: :cascade do |t|
+    t.string "twitter_identifier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tweets", force: :cascade do |t|
     t.string "tweet_identifier", null: false
+    t.bigint "tweet_owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tweet_identifier"], name: "index_tweets_on_tweet_identifier", unique: true
+    t.index ["tweet_owner_id"], name: "index_tweets_on_tweet_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
