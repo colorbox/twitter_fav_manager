@@ -1,0 +1,2 @@
+class FavoritedTweet < ApplicationRecord
+end
