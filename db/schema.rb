@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2018_07_01_053901) do
   enable_extension "plpgsql"
 
   create_table "favorited_owners", force: :cascade do |t|
-    t.bigint "users_id"
-    t.bigint "tweet_owners_id"
+    t.bigint "users_id", null: false
+    t.bigint "tweet_owners_id", null: false
     t.integer "fetch_status", limit: 2, default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
