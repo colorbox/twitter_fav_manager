@@ -34,7 +34,7 @@ namespace :favorites do
           pp"--"
         end
 
-        continue_flag = false if favorites.count<=1
+        continue_flag = false if favorites.count < 100
       end
     end
   end
