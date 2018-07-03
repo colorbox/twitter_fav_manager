@@ -16,31 +16,33 @@ ActiveRecord::Schema.define(version: 2018_07_01_053901) do
   enable_extension "plpgsql"
 
   create_table "favorited_owners", force: :cascade do |t|
-    t.bigint "users_id", null: false
-    t.bigint "tweet_owners_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "tweet_owner_id", null: false
     t.integer "fetch_status", limit: 2, default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tweet_owners_id"], name: "index_favorited_owners_on_tweet_owners_id"
-    t.index ["users_id"], name: "index_favorited_owners_on_users_id"
+    t.index ["tweet_owner_id"], name: "index_favorited_owners_on_tweet_owner_id"
+    t.index ["user_id"], name: "index_favorited_owners_on_user_id"
   end
 
   create_table "favorited_tweets", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "tweet_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "tweet_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["tweet_id"], name: "index_favorited_tweets_on_tweet_id"
+    t.index ["user_id"], name: "index_favorited_tweets_on_user_id"
   end
 
   create_table "tweet_owners", force: :cascade do |t|
-    t.string "twitter_identifier"
+    t.string "twitter_identifier", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "tweets", force: :cascade do |t|
     t.string "tweet_identifier", null: false
-    t.bigint "tweet_owner_id"
+    t.bigint "tweet_owner_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tweet_identifier"], name: "index_tweets_on_tweet_identifier", unique: true
