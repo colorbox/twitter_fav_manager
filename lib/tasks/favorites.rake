@@ -95,12 +95,7 @@ namespace :favorites do
           pp"--"
           continue_flag = false if tweets.count < 100
         end
-
-
       end
-
-
-
     end
   end
 end
