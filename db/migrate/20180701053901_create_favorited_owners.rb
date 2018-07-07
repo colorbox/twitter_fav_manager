@@ -6,6 +6,8 @@ class CreateFavoritedOwners < ActiveRecord::Migration[5.2]
       t.integer :fetch_status, default: 0, null: false, limit: 1
 
       t.timestamps
+
+      t.index [:user_id, :tweet_owner_id]
     end
   end
 end

@@ -5,6 +5,8 @@ class CreateFavoritedTweets < ActiveRecord::Migration[5.2]
       t.references :tweet, null: false
 
       t.timestamps
+
+      t.index [:user_id, :tweet_id]
     end
   end
 end
