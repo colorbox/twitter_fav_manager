@@ -60,9 +60,8 @@ namespace :favorites do
         while continue_flag do
           debugger
           tweets = if max_id.nil?
-                   @client.user_timeline(user: owner_tuple[0].to_i, count: 200)
                  else
-                   @client.user_timeline(user: owner_tuple[0].to_i, count: 200, max_id: max_id)
+                   @client.user_timeline(owner_tuple[0].to_i, count: 200, max_id: max_id)
                    end
 
           tweets.each do |f|
