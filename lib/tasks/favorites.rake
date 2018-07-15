@@ -28,6 +28,7 @@ namespace :favorites do
 
           owner.tweets << tweet
           user.tweets << tweet
+          user.tweet_owners << owner if user.tweet_owners.where(twitter_identifier: owner.twitter_identifier).size.zero?
           max_id = tweet_id if max_id.nil? || max_id > tweet_id
 
           pp f.text
@@ -49,8 +50,7 @@ namespace :favorites do
         config.access_token_secret = user.access_token_secret
       end
 
-      owners = user.tweet_owners.includes(:tweets).map{|o|[o.twitter_identifier, o.tweets.size]}.sort_by{|t|t[1]}.reverse.take(3)[1..2]
-      # owners = user.tweet_owners.includes(:tweets).map{|o|[o.twitter_identifier, o.tweets.size]}.sort_by{|t|t[1]}.reverse.take(10)
+      owners = user.timeline_not_fetched_tweet_owners.includes(:tweets).map{|o|[o.twitter_identifier, o.tweets.size]}.sort_by{|t|t[1]}.reverse.take(20)
 
       owners.each do |owner_tuple|
 
