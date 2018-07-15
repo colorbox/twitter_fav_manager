@@ -3,7 +3,7 @@ class CreateFavoritedOwners < ActiveRecord::Migration[5.2]
     create_table :favorited_owners do |t|
       t.references :user, null: false
       t.references :tweet_owner, null: false
-      t.integer :fetch_status, default: 0, null: false, limit: 1
+      t.integer :fetched_status, default: 0, null: false, limit: 1
 
       t.timestamps
 
