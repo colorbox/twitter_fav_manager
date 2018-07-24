@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_07_105458) do
+ActiveRecord::Schema.define(version: 2018_07_01_053901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,23 +34,6 @@ ActiveRecord::Schema.define(version: 2018_07_07_105458) do
     t.index ["tweet_id"], name: "index_favorited_tweets_on_tweet_id"
     t.index ["user_id", "tweet_id"], name: "index_favorited_tweets_on_user_id_and_tweet_id"
     t.index ["user_id"], name: "index_favorited_tweets_on_user_id"
-  end
-
-  create_table "favorited_tweets_tags", id: false, force: :cascade do |t|
-    t.bigint "favorited_tweets_id"
-    t.bigint "tags_id"
-    t.index ["favorited_tweets_id"], name: "index_favorited_tweets_tags_on_favorited_tweets_id"
-    t.index ["tags_id"], name: "index_favorited_tweets_tags_on_tags_id"
-  end
-
-  create_table "tags", force: :cascade do |t|
-    t.bigint "favorited_tweet_id", null: false
-    t.bigint "user_id", null: false
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["favorited_tweet_id"], name: "index_tags_on_favorited_tweet_id"
-    t.index ["user_id"], name: "index_tags_on_user_id"
   end
 
   create_table "tweet_owners", force: :cascade do |t|
