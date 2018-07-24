@@ -10,16 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_19_112130) do
+ActiveRecord::Schema.define(version: 2018_07_01_053901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "favorited_owners", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "tweet_owner_id", null: false
+    t.integer "fetched_status", limit: 2, default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tweet_owner_id"], name: "index_favorited_owners_on_tweet_owner_id"
+    t.index ["user_id", "tweet_owner_id"], name: "index_favorited_owners_on_user_id_and_tweet_owner_id"
+    t.index ["user_id"], name: "index_favorited_owners_on_user_id"
+  end
+
+  create_table "favorited_tweets", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "tweet_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tweet_id"], name: "index_favorited_tweets_on_tweet_id"
+    t.index ["user_id", "tweet_id"], name: "index_favorited_tweets_on_user_id_and_tweet_id"
+    t.index ["user_id"], name: "index_favorited_tweets_on_user_id"
+  end
+
+  create_table "tweet_owners", force: :cascade do |t|
+    t.string "twitter_identifier", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tweets", force: :cascade do |t|
     t.string "tweet_identifier", null: false
+    t.bigint "tweet_owner_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tweet_identifier"], name: "index_tweets_on_tweet_identifier", unique: true
+    t.index ["tweet_owner_id"], name: "index_tweets_on_tweet_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
