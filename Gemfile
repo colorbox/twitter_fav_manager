@@ -25,6 +25,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'capistrano'
   gem 'web-console'
   gem 'listen'
   gem 'spring'
