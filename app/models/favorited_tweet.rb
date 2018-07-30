@@ -1,6 +1,5 @@
 class FavoritedTweet < ApplicationRecord
   belongs_to :user
   belongs_to :tweet
-
-  has_many :tags
+  has_and_belongs_to_many :tags
 end

@@ -1,12 +1,19 @@
 class CreateTags < ActiveRecord::Migration[5.2]
   def change
     create_table :tags do |t|
+
       t.references :user, null: false
-      t.references :favorited_tweet, null: false
+
+      t.string :title, null: false
 
       t.timestamps
+    end
 
-      t.index [:user_id, :favorited_tweet_id]
+    create_table :favorited_tweets_tags do |t|
+      t.belongs_to :favorited_tweet, index: true
+      t.belongs_to :tag, index: true
+
+      t.index [:favorited_tweet_id, :tag_id]
     end
   end
 end
