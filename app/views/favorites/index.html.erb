@@ -1,6 +1,5 @@
 <%= link_to 'twitter login', "/auth/twitter?callback_url=#{new_session_url}" %>
 
-
-<%= render partial: 'favorites/tweet', collection: @tweets %>
+<%= render @tweets %>
 
 <%= paginate @tweets %>
