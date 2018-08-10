@@ -1,6 +1,6 @@
 <%= link_to 'twitter login', "/auth/twitter?callback_url=#{new_session_url}" %>
 
-<% if @tweets %>
-  <%= render @tweets %>
-  <%= paginate @tweets %>
+<% if @favorited_tweets %>
+  <%= render @favorited_tweets %>
+  <%= paginate @favorited_tweets %>
 <% end %>
