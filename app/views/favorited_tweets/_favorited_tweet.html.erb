@@ -1,7 +1,7 @@
 <%= render favorited_tweet.tweet %>
 <% favorited_tweet.tags.each do |tag| %>
   <p>
-    <%= tag.title %>
+    <%= link_to tag.title, tag_tweets_path(tag) %>
     <%= link_to 'del', favorite_tag_path(favorite_id: favorited_tweet.id, id: tag.id) , method: :delete, data: {confirm: 'Are you sure?'} %>
   </p>
 <% end %>
