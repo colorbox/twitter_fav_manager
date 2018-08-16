@@ -1,7 +1,8 @@
 class TagsController < ApplicationController
   def create
+    tag = Tag.find_or_create_by!(title: tag_param[:title])
     favorited_tweet = FavoritedTweet.find(params[:favorite_id])
-    favorited_tweet.tags.create(title: tag_param[:title])
+    tag.favorited_tweets << favorited_tweet
 
     redirect_back(fallback_location: root_path)
   end
