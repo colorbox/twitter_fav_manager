@@ -10,7 +10,8 @@ class TagsController < ApplicationController
 
   def destroy
     tag = Tag.find(params[:id])
-    tag.destroy
+    favorited_tweet = FavoritedTweet.find(params[:favorite_id])
+    tag.favorited_tweets.destroy(favorited_tweet)
 
     redirect_back(fallback_location: root_path)
   end
