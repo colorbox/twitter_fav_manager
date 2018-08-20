@@ -10,7 +10,7 @@ class CreateTags < ActiveRecord::Migration[5.2]
       t.belongs_to :favorited_tweet, index: true
       t.belongs_to :tag, index: true
 
-      t.index [:favorited_tweet_id, :tag_id]
+      t.index [:favorited_tweet_id, :tag_id], unique: true
     end
   end
 end

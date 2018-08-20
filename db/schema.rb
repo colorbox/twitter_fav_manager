@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2018_07_28_145234) do
   create_table "favorited_tweets_tags", force: :cascade do |t|
     t.bigint "favorited_tweet_id"
     t.bigint "tag_id"
-    t.index ["favorited_tweet_id", "tag_id"], name: "index_favorited_tweets_tags_on_favorited_tweet_id_and_tag_id"
+    t.index ["favorited_tweet_id", "tag_id"], name: "index_favorited_tweets_tags_on_favorited_tweet_id_and_tag_id", unique: true
     t.index ["favorited_tweet_id"], name: "index_favorited_tweets_tags_on_favorited_tweet_id"
     t.index ["tag_id"], name: "index_favorited_tweets_tags_on_tag_id"
   end
