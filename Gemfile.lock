@@ -70,6 +70,7 @@ GEM
     chromedriver-helper (1.2.0)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
+    coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -78,6 +79,8 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
     crass (1.0.4)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
@@ -91,6 +94,7 @@ GEM
     ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    hashdiff (0.3.7)
     hashie (3.5.7)
     http (3.0.0)
       addressable (~> 2.3)
@@ -161,6 +165,12 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     pg (1.0.0)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-byebug (3.6.0)
+      byebug (~> 10.0)
+      pry (~> 0.10)
     public_suffix (3.0.2)
     puma (3.11.4)
     rack (2.0.5)
@@ -196,6 +206,7 @@ GEM
       ffi (>= 0.5.0, < 2)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
+    safe_yaml (1.0.4)
     sass (3.5.6)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -259,6 +270,10 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webmock (3.4.2)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -282,6 +297,7 @@ DEPENDENCIES
   omniauth
   omniauth-twitter
   pg
+  pry-byebug
   puma
   rails (= 5.2.0)
   sass-rails
@@ -294,6 +310,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier
   web-console
+  webmock
 
 RUBY VERSION
    ruby 2.5.1p57
