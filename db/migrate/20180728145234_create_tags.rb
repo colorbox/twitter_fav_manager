@@ -6,11 +6,11 @@ class CreateTags < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    create_table :favorited_tweets_tags do |t|
-      t.belongs_to :favorited_tweet, index: true
+    create_table :tweets_tags do |t|
+      t.belongs_to :tweet, index: true
       t.belongs_to :tag, index: true
 
-      t.index [:favorited_tweet_id, :tag_id], unique: true
+      t.index [:tweet_id, :tag_id], unique: true
     end
   end
 end
