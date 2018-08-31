@@ -21,14 +21,11 @@ namespace :favorites do
 
         favorites.each do |f|
           owner_id = f.user.id
-          owner = TweetOwner.find_or_create_by!(twitter_identifier: owner_id)
-
           tweet_id = f.id.to_s
-          tweet = Tweet.find_or_initialize_by(tweet_identifier: tweet_id)
 
-          owner.tweets << tweet
-          user.tweets << tweet
-          user.tweet_owners << owner if user.tweet_owners.where(twitter_identifier: owner.twitter_identifier).size.zero?
+          tweet = Tweet.find_or_create_by(tweet_identifier: tweet_id, tweet_owner_identifier: owner_id)
+          user.tweets << tweet if user.tweets.exclude?(tweet)
+
           max_id = tweet_id if max_id.nil? || max_id > tweet_id
 
           pp f.text
