@@ -1,7 +1,8 @@
 class Tweet < ApplicationRecord
-  belongs_to :tweet_owner
   has_many :favorited_tweets
   has_many :users, through: :favorited_tweets
+
+  has_and_belongs_to_many :tags
 
   def embed_html
     url = "https://api.twitter.com/1.1/statuses/oembed.json?id=#{tweet_identifier}"
