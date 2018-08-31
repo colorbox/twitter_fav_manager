@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2018_07_28_145234) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tweet_id"], name: "index_favorited_tweets_on_tweet_id"
-    t.index ["user_id", "tweet_id"], name: "index_favorited_tweets_on_user_id_and_tweet_id"
+    t.index ["user_id", "tweet_id"], name: "index_favorited_tweets_on_user_id_and_tweet_id", unique: true
     t.index ["user_id"], name: "index_favorited_tweets_on_user_id"
   end
 
@@ -33,11 +33,10 @@ ActiveRecord::Schema.define(version: 2018_07_28_145234) do
 
   create_table "tweets", force: :cascade do |t|
     t.string "tweet_identifier", null: false
-    t.bigint "tweet_owner_id", null: false
+    t.string "tweet_owner_identifier", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tweet_identifier"], name: "index_tweets_on_tweet_identifier", unique: true
-    t.index ["tweet_owner_id"], name: "index_tweets_on_tweet_owner_id"
+    t.index ["tweet_identifier", "tweet_owner_identifier"], name: "index_tweets_on_tweet_identifier_and_tweet_owner_identifier", unique: true
   end
 
   create_table "tweets_tags", force: :cascade do |t|
