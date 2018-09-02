@@ -31,20 +31,20 @@ ActiveRecord::Schema.define(version: 2018_07_28_145234) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tags_tweets", force: :cascade do |t|
+    t.bigint "tweet_id"
+    t.bigint "tag_id"
+    t.index ["tag_id"], name: "index_tags_tweets_on_tag_id"
+    t.index ["tweet_id", "tag_id"], name: "index_tags_tweets_on_tweet_id_and_tag_id", unique: true
+    t.index ["tweet_id"], name: "index_tags_tweets_on_tweet_id"
+  end
+
   create_table "tweets", force: :cascade do |t|
     t.string "tweet_identifier", null: false
     t.string "tweet_owner_identifier", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tweet_identifier", "tweet_owner_identifier"], name: "index_tweets_on_tweet_identifier_and_tweet_owner_identifier", unique: true
-  end
-
-  create_table "tweets_tags", force: :cascade do |t|
-    t.bigint "tweet_id"
-    t.bigint "tag_id"
-    t.index ["tag_id"], name: "index_tweets_tags_on_tag_id"
-    t.index ["tweet_id", "tag_id"], name: "index_tweets_tags_on_tweet_id_and_tag_id", unique: true
-    t.index ["tweet_id"], name: "index_tweets_tags_on_tweet_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -6,7 +6,7 @@ class CreateTags < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    create_table :tweets_tags do |t|
+    create_table :tags_tweets do |t|
       t.belongs_to :tweet, index: true
       t.belongs_to :tag, index: true
 
