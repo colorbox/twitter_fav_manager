@@ -2,10 +2,10 @@
 <% favorited_tweet.tweet.tags.each do |tag| %>
   <p>
     <%= link_to tag.title, tag_tweets_path(tag) %>
-    <%= link_to 'del', favorite_tag_path(favorite_id: favorited_tweet.id, id: tag.id) , method: :delete, data: {confirm: 'Are you sure?'} %>
+    <%= link_to 'del', tweet_tag_path(tweet_id: favorited_tweet.tweet.id, id: tag.id) , method: :delete, data: {confirm: 'Are you sure?'} %>
   </p>
 <% end %>
-<%= form_for :tag, url: favorite_tags_path(favorite_id: favorited_tweet.id) do |f| %>
+<%= form_for :tag, url: tweet_tags_path(tweet_id: favorited_tweet.tweet.id) do |f| %>
   <%= f.text_field :title %>
   <%= f.submit '+' %>
 <% end %>
