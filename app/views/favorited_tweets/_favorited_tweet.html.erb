@@ -1,4 +1,6 @@
-<%= render favorited_tweet.tweet %>
+<% cache favorited_tweet.tweet do %>
+  <%= render favorited_tweet.tweet %>
+<% end %>
 <% favorited_tweet.tweet.tags.each do |tag| %>
   <p>
     <%= link_to tag.title, tag_tweets_path(tag) %>
