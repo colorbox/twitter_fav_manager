@@ -5,6 +5,7 @@ ruby '2.5.1'
 
 gem 'rails', '5.2.0'
 
+gem 'bootsnap', require: false
 gem 'coffee-rails'
 gem 'jbuilder'
 gem 'jquery-rails'
