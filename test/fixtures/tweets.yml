@@ -1,0 +1,7 @@
+tweet1:
+  tweet_identifier: 'tweet_identifier_1'
+  tweet_owner_identifier: 'tweet_owner_identifier_1'
+
+tweet2:
+  tweet_identifier: 'tweet_identifier_2'
+  tweet_owner_identifier: 'tweet_owner_identifier_2'
