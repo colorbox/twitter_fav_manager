@@ -5,6 +5,7 @@ ruby '2.5.1'
 
 gem 'rails', '5.2.0'
 
+gem 'bootsnap', require: false
 gem 'coffee-rails'
 gem 'jbuilder'
 gem 'jquery-rails'
@@ -22,6 +23,9 @@ gem 'uglifier'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'
+  gem 'pry-byebug'
+  gem 'selenium-webdriver'
+  gem 'webmock'
 end
 
 group :development do

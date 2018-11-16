@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
   def index
-    @tweets = current_user.tweets.page(params[:page]) if current_user
+    @favorited_tweets = current_user.favorited_tweets.includes(:tweet).page(params[:page]) if current_user
   end
 end

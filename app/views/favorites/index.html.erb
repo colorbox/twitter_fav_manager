@@ -1,6 +1,10 @@
-<%= link_to 'twitter login', "/auth/twitter?callback_url=#{new_session_url}" %>
+<% if session[:token] %>
+  logout
+<% else %>
+  <%= link_to 'twitter login', "/auth/twitter?callback_url=#{new_session_url}" %>
+<% end %>
 
-
-<%= render partial: 'favorites/tweet', collection: @tweets %>
-
-<%= paginate @tweets %>
+<% if @favorited_tweets %>
+  <%= render @favorited_tweets %>
+  <%= paginate @favorited_tweets %>
+<% end %>

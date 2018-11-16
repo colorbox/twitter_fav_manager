@@ -1,0 +1,25 @@
+sudo: required
+language: ruby
+cache: bundler
+dist: trusty
+
+rvm:
+  - 2.5.1
+
+services:
+  - postgresql
+
+env:
+  CHROME_DRIVER_VERSION: '2.38'
+
+addons:
+  chrome: stable
+
+before_script:
+  - bin/setup_travis
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp ./.travis/database.yml config/database.yml
+  - bundle install
+
+script:
+  - bundle exec rails test:system

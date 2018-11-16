@@ -6,7 +6,7 @@ class CreateFavoritedTweets < ActiveRecord::Migration[5.2]
 
       t.timestamps
 
-      t.index [:user_id, :tweet_id]
+      t.index [:user_id, :tweet_id], unique: true
     end
   end
 end
