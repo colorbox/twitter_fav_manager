@@ -2,3 +2,5 @@
 /.idea/
 /log
 .env
+.ruby-version
+.byebug_history  
