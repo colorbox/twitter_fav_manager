@@ -2,6 +2,11 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV['TFM_DB_USER'] %>
+  password: <%= ENV['TFM_DB_PASSWORD'] %>
+  host: <%= ENV['TFM_DB_HOST'] %>
+  port: <%= ENV['TFM_DB_PORT'] %>
+
 
 development:
   <<: *default
@@ -14,5 +19,3 @@ test:
 production:
   <<: *default
   database: twitter_fav_manager_production
-  username: twitter_fav_manager
-  password: <%= ENV['TWITTER_FAV_MANAGER_DATABASE_PASSWORD'] %>
