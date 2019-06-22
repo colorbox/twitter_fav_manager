@@ -8,7 +8,7 @@ gem 'rails', '5.2.0'
 gem 'bootsnap', require: false
 gem 'coffee-rails'
 gem 'jbuilder'
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 4.3.4'
 gem 'kaminari'
 gem 'omniauth'
 gem 'omniauth-twitter'
